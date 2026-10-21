@@ -1,0 +1,15 @@
+import { ArrowRight, Check, Clock3, MessageCircle } from "lucide-react";
+import { Link } from "wouter";
+import { ActionBand, Eyebrow, PageHero, ProgramTicket, SectionHeading } from "@/components/SiteShell";
+import { programs } from "@/lib/siteContent";
+
+export default function Programs() {
+  return <div className="programs-page">
+    <PageHero kicker="LEARNING THAT MEETS YOU WHERE YOU ARE" title={<>Choose a way to<br /><em>move forward.</em></>} description="Explore the learning formats at My English. Ask Yared directly about current schedules, course details and fees." tone="cream"><Link className="button button-dark" href="/contact">Ask about a program <ArrowRight size={16} /></Link></PageHero>
+    <section className="content-section"><div className="site-container"><div className="programs-page-intro"><div><Eyebrow>THREE WAYS TO LEARN</Eyebrow><h2>Find the format<br /><em>that fits you.</em></h2></div><p>Course details depend on the current class offering. Get in touch to confirm the available level, schedule, class size and fees before you decide.</p></div><div className="ticket-grid">{programs.map((program) => <ProgramTicket key={program.name} {...program} />)}</div><div className="program-detail-notice"><strong>Planning your course?</strong> Use the level check as an informal starting point, then ask the school about the best current option. Prices, schedules, class size and course duration are not listed here until confirmed by My English.</div>
+      <div className="program-level-band"><Eyebrow light>ENGLISH LEVELS</Eyebrow><h2>From your first words<br /><em>to your next goal.</em></h2><div className="level-band-items"><div className="level-band-item"><strong>Beginner</strong><span>Build a foundation. Ask which beginner course is open now.</span></div><div className="level-band-item"><strong>Intermediate</strong><span>Keep developing your English. Confirm the course level with Yared.</span></div><div className="level-band-item"><strong>Advanced</strong><span>Explore your next learning goal and ask about available options.</span></div></div></div>
+    </div></section>
+    <section className="content-section content-section-alt"><div className="site-container"><SectionHeading eyebrow="WHAT TO ASK" title="Get the details before you join." description="A quick conversation can help you compare the learning format, level and current availability." /><div className="contact-checks"><div><span><Check size={16} /></span><p><strong>Which level is open?</strong><small>Beginner, intermediate or advanced options</small></p></div><div><span><Clock3 size={16} /></span><p><strong>When does it run?</strong><small>Confirm the current start date and schedule</small></p></div><div><span><MessageCircle size={16} /></span><p><strong>How do I join?</strong><small>Ask about the format and next steps</small></p></div></div><Link href="/contact" className="text-link">Ask about programs <ArrowRight size={16} /></Link></div></section>
+    <ActionBand title="Not sure which program fits?" description="Tell Yared about your level and learning goal. The school can confirm current options." />
+  </div>;
+}
